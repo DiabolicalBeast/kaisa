@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+    <title>kardia: an about page.</title>
+    <!--change the title of the page here! this
+      will appear as the title at your current tab.-->
+
+    <style>figure{margin:0}.tmblr-iframe{position:absolute}.tmblr-iframe.hide{display:none}.tmblr-iframe--amp-cta-button{visibility:hidden;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:100}.tmblr-iframe--amp-cta-button.tmblr-iframe--loaded{visibility:visible;animation:iframe-app-cta-transition .2s ease-out}</style><link rel="stylesheet" media="screen" href="https://assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css?_v=b84ed2eb31f8e1bbdb3e7a53afa67dd4"><link rel="shortcut icon" href="https://assets.tumblr.com/images/default_avatar/cone_closed_128.png" />
+    <link rel="alternate" type="application/rss+xml" href="https://pneuma-prev.tumblr.com/rss" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+ 
+    Page #01: Kardia
+    coded by pneuma-themes
+    
+    1. Don't remove the credit.
+    2. Don't move the credit. Just leave it there.
+    3. Don't use as a base code.
+    4. Please enjoy! If you find any bugs, please contact me! c:
+    
+    -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      const storedTheme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      if (storedTheme)
+        document.documentElement.setAttribute("data-theme", storedTheme);
+    </script>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+      /*attention! to change the colors of the page, look below!*/
+      
+      /*make changes here to change the colors on light mode. please leave LightOn and LightOff variables be!*/
+      :root,
+      html[data-theme="light"] {
+        --LightOn: flex;
+        --LightOff: none;
+        --accent: #300d40;
+        --body: #1f1f1f;
+        --background: #fff;
+        --border: #eee;
+        --Columns:3;
+        --Column-Spacing:15px;
+        --Item-Spacing:15px;
+      }
+      
+        /*make changes here to change the colors on dark mode. please leave LightOn and LightOff variables be!*/
+      html[data-theme="dark"] {
+        --LightOn: none;
+        --LightOff: flex;
+        --body: #bdb1c9;
+        --border: #d3d4d4;
+        --background: #1a1a1a;
+      }
+
+      html.theme-transition,
+      html.theme-transition *,
+      html.theme-transition *:before,
+      html.theme-transition *:after {
+        transition: 0s !important;
+        transition-delay: 0 !important;
+      }
+
+      iframe.tmblr-iframe {
+        display: none !important;
+      }
+      
+      ::-webkit-scrollbar{
+          width:6px;
+      }
+      
+      ::-webkit-scrollbar-thumb:vertical{
+          background:var(--accent);
+          height:auto;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "PT Sans";
+        font-size: 14px;
+        color: var(--body);
+        background: var(--background);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--body);
+      }
+      
+      .tippy-box{
+          background:var(--accent);
+          color:#fff;
+          font-size:12px;
+}
+
+      #decorative-sidebar {
+        width: 15px;
+        height: 100%;
+        background: var(--accent);
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+
+      #sidebar {
+        width: 350px;
+        height: 100%;
+        position: fixed;
+        left: 15px;
+        top: 0;
+      }
+
+      #sidebar-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        min-height: 150px;
+        margin-top: 100px;
+      }
+
+      #sidebar-image {
+        width: 64px;
+        height: 64px;
+        padding: 5px;
+        margin-right: 20px;
+        border: 1px solid var(--border);
+        /**delete this line if you want a square icon**/
+        border-radius: 100%;
+      }
+
+      #sidebar-image img {
+        width: 64px;
+        height: 64px;
+        max-width: 64px;
+        max-height: 64px;
+        /**delete this line if you want a square icon**/
+        border-radius: 100%;
+      }
+
+      #title {
+        font-family: "PT Serif";
+        font-size: 20px;
+        text-align: center;
+        font-weight: 700;
+        padding: 10px;
+      }
+
+      #desc {
+        border: 1px solid var(--border);
+        text-align: justify;
+        padding: 20px;
+        margin: 20px;
+        /*delete this line if you want a sharp border*/
+        border-radius: 5px;
+      }
+      
+      #desc a{
+          color:var(--accent);
+          font-weight:700;
+      }
+
+      #navigation {
+        width: 100%;
+        display: flex;
+        margin: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .navigation-links a {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 -5px inset var(--accent);
+        margin-right: 15px;
+      }
+
+      .navigation-links a:last-child {
+        margin-right: 0;
+      }
+
+      #credit {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: var(--background);
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+        border: 1px solid var(--accent);
+      }
+
+      #credit a {
+        color: var(--accent);
+      }
+
+      .dark-switch {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 20px;
+        padding: 10px;
+        height: 20px;
+        font-size: 20px;
+        border: 1px solid var(--border);
+        text-align: center;
+        /*delete this line if you want a sharp border*/
+        border-radius: 5px;
+        color: var(--body);
+      }
+
+      .light-on {
+        display: var(--LightOn);
+      }
+
+      .light-off {
+        display: var(--LightOff);
+      }
+      
+      /**about container**/
+      #about-container{
+          width:65%;
+          display:flex;
+          margin-left:400px;
+          position:relative;
+          display:flex;
+          margin-top:50px;
+          margin-bottom:50px;
+      }
+      
+      #about-sidebar{
+          width:25%;
+          margin-right:50px;
+      }
+      
+      .about-box{
+          border:1px solid var(--border);
+          width:100%;
+          min-height:150px;
+          margin-bottom:20px;
+        /*delete this line if you want a sharp border*/
+        border-radius: 5px;
+      }
+      
+      .about-box:last-child{
+          margin-bottom:0 !important;
+      }
+      
+      .about-box-header{
+          display:flex;
+          padding:20px;
+          align-items:center;
+          border-bottom:1px solid var(--border);
+          text-transform:uppercase;
+          font-weight:700;
+      }
+      
+      .about-box-header ion-icon{
+          font-size:24px;
+          color:var(--accent);
+          margin-right:20px;
+      }
+      
+      .about-box-text{
+          padding:20px;
+      }
+      
+      .about-box-text-row{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          margin-top:10px;
+          font-size:12px;
+      }
+      
+      .about-box-text-row a{
+          box-shadow:0 -3px inset var(--accent);
+      }
+      
+      .about-box-text-row-label{
+          font-weight:700;
+          text-transform:uppercase;
+      }
+      
+      #about-text{
+          width:80%;
+      }
+      
+      #quote{
+          padding:20px;
+          width:100%;
+          font-family:'PT Serif';
+          font-style:italic;
+          font-size:25px;
+          font-weight:700;
+          position:relative;
+      }
+      
+      #quote:before{
+          content:'';
+          position:absolute;
+          background-color:var(--accent);
+          width:20%;
+          left:20px;
+          padding:2px;
+          bottom:0;
+      }
+      
+      #about-text-body{
+          padding:20px;
+          text-align:justify;
+      }
+      
+      #about-text-body a{
+          font-weight:700;
+          box-shadow:0 -5px inset var(--accent);
+      }
+      
+      #about-text-body i, em{
+          color:var(--accent);
+      }
+      
+      #about-text-body blockquote{
+          border-left:4px solid var(--border);
+          padding-left:20px;
+      }
+      
+      #about-text-body:first-letter{
+          font-family:'PT Serif';
+          font-size:20px;
+          padding:10px;
+          background:var(--accent);
+          float:left;
+          margin-right:5px;
+          text-align:center;
+          width:10px;
+          height:20px;
+          line-height:100%;
+          font-weight:700;
+          color:#fff;
+      }
+    </style>
+  <script src="https://assets.tumblr.com/assets/scripts/tumblelog_post_message_queue.js?_v=a8fadfa499d8cb7c3f8eefdf0b1adfdd"></script><link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/gibson/stylesheet.css?v=3"><!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --><!-- Read more: http://ogp.me/ --><meta property="fb:app_id" content="48119224995" /><meta property="og:site_name" content="Tumblr" /><meta property="og:title" content="Tumblr" /><meta property="og:url" content="https://pneuma-prev.tumblr.com/pg-kardia" /><meta property="og:type" content="article" /><meta property="og:determiner" content="a" /><meta property="al:ios:url" content="tumblr://x-callback-url/blog?blogName=pneuma-prev&amp;postID=" /><meta property="al:ios:app_name" content="Tumblr" /><meta property="al:ios:app_store_id" content="305343404" /><meta property="al:android:url" content="tumblr://x-callback-url/blog?blogName=pneuma-prev&amp;postID=" /><meta property="al:android:app_name" content="Tumblr" /><meta property="al:android:package" content="com.tumblr" /><!-- END TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:site" content="tumblr" /><meta name="twitter:card" content="summary" /><meta name="twitter:description" content="pneuma-prev" /><meta name="twitter:title" content="pneuma-prev" /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=pneuma-prev&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=pneuma-prev&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=pneuma-prev&amp;referrer=twitter-cards" /><link rel="canonical" href="https://pneuma-prev.tumblr.com/pg-kardia" /></head>
+
+  <body>
+    <div class="dark-switch" id="theme-toggle">
+      <ion-icon name="moon-outline" class="light-on" title="dark mode"></ion-icon>
+      <ion-icon name="sunny-outline" class="light-off" title="light mode"></ion-icon>
+    </div>
+    <div id="decorative-sidebar"></div>
+    
+    <div id="sidebar">
+      <div id="sidebar-content">
+        <div id="sidebar-image">
+          <!--change your icon here-->
+          <img src="https://i.postimg.cc/YCKx3kBF/FTPLjge-WQAAT20-F.jpg" />
+        </div>
+        <div id="title">void daughter</div>
+        <div id="navigation">
+          <div class="navigation-links">
+            <a href="//xat.me/lastwhispers">01</a>
+            <a href="//xat.me/schroederz">02</a>
+            <a href="//xat.me/darklieutnight">03</a>
+            <a href="//xat.me/ghostybabe">04</a>
+          </div>
+        </div>
+        <div id="desc">
+                you know that feeling when your skin crawls? like a thousand needles poking through every pore? blood pounding through every vein?
+        <br>
+        that's just and itch compared to what lives on me.
+        <br>
+        <br>
+        theme by <a href="//pneuma-themes.tumblr.com/">pneuma.</a>
+        </div>
+      </div>
+      <!--end sidebar-content-->
+    </div>
+    
+    <div id="about-container">
+        <div id="about-sidebar">
+            <!--Please read this first!
+            To add more boxes, copy from where it says "copy from here" until the part where it says "to here".-->
+            
+            <!--copy from here-->
+            <div class="about-box">
+                <div class="about-box-header">
+                <!--you can change the icons here, specifically where it says "name="...". refer to ionicons for the complete list of icons.-->
+                <ion-icon name="list-circle-outline"></ion-icon>
+                personal information
+                </div>
+                
+                <div class="about-box-text">
+                <!--if you need to add more row, copy the entirety of "about-box-text-row".-->
+                    <!--copy from here-->
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">name</div>
+                        jade
+                    </div>
+                    <!--to here-->
+                    
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">age</div>
+                        18
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">gender</div>
+                        female
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">moral alignment</div>
+                        neutral evil
+                    </div>
+                </div><!--end about-box-text-->
+            </div><!--end about-box-->
+            <!--to here-->
+            
+            <div class="about-box">
+                <div class="about-box-header">
+                    <ion-icon name="pin-outline"></ion-icon>
+                    
+                    random things i like
+                </div>
+                
+                <div class="about-box-text">
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">⸻</div>
+                        <a href="">danganronpa</a>
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">⸻</div>
+                        <a href="">doki doki literature club</a>
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">⸻</div>
+                        <a href="">sushi</a>
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">⸻</div>
+                        <a href="">cats</a>
+                    </div>
+                </div>
+            </div>
+        </div><!--end about sidebar-->
+        
+        <div id="about-text">
+                        <div id="quote">are you the hunter... or the prey?</div>
+                          <!--change your quote here!-->
+
+            
+            <div id="about-text-body">
+            <!--write your about here! you can write as much as you want.-->
+            <p>Perhaps the most remarkable thing about the fearless hunter of the Void known as Kai’Sa is how unremarkably her life began. She did not descend from tribal warriors hardened by generations of battle, nor was she summoned from distant lands to fight the unknowable menace lurking beneath Shurima. Rather, she was just an ordinary girl, born to loving parents who called the unforgiving southern deserts their home. This was where she would spend her days playing with friends, and her nights dreaming about her place in the world.</p>
+
+                          <p>In her tenth summer, the young girl Kaisa’s destiny would be changed forever. Had she been older, she might have noticed more of the unusual events that had begun to unfold in the villages—every day, her mother urged her stay home, for fear of strangers wandering the land, demanding tribute to dark powers below. Kaisa and her friends did not believe it, until one evening they came upon a pen of sacrificial goats bought from nomad herdsmen. Using the knife her father had given her on her eighth birthday, she cut their tethers and set the animals free into a nearby canyon. It seemed like a harmless prank, until the unthinkable happened. The ground began to quake, flashes of light scorched the sky, and the children ran for their lives.</p>
+                          <p>The Void had been awakened. A great rift split the bedrock, swallowing up Kaisa’s village and everyone in it, leaving nothing behind but sand pierced with twisted columns as black as night.</p>
+                        
+                          <p>Kaisa regained consciousness to find herself trapped underground. She was filled with crippling fear, but there was still hope; she could hear the faint cries of other survivors. They called out to each other feebly, repeating their names one by one like a mantra. Sadly, by the third day, hers was the only voice left. Her friends and family were all gone. She was alone in the darkness.</p>
+            <p>It was only when all seemed lost that she saw the light.</p>
+
+<p>She followed it down.</p>
+
+<p>Along the way, she found meager sustenance. Amid the debris left by the collapse were ragged waterskins, rotting peaches—anything to keep starvation at bay. But, eventually, Kaisa’s hunger was replaced by fear once again. She found herself in a vast cavern, illuminated by an otherworldly purplish glow, and she could see she was no longer alone.</p>
+
+<p>Skittering creatures swarmed in the depths. The first that came for Kaisa was no bigger than her, and she clutched her knife in both hands, ready to defend herself. The voidling horror knocked her to the ground, but she drove the blade into its pulsing heart, and the two of them tumbled deeper into the abyss.</p>
+
+<p>The creature was seemingly dead, but its unnatural skin had taken hold upon the flesh of her arm. The dark shell tingled, but was hard as steel to the touch. In a panic, Kaisa broke her knife trying to remove it. But when the larger beasts came, she used it as a shield to make her escape.</p>
+
+<p>Soon enough, she realized the shell was becoming part of her. As her daily struggle to survive drew out into years, this second skin grew with her, and so too did her resolve.</p>
+
+<p>Now she had more than hope, she had a plan. Fight hard. Stay alive. Find a way back.</p>
+
+<p>She was transformed, from frightened girl to fearless survivor, from prey to predator. For almost a decade, she has lived between two worlds in an attempt to keep them apart—the Void hungers to consume not only the scattered villages of Shurima, but the whole of Runeterra. She will not allow that to happen.</p>
+
+<p>Though she has slain countless Void-constructs, she understands that many of the people she protects would see her as a monster herself. Indeed, her name has begun to pass into legend, an echo of the ancient horrors of doomed Icathia.</p>
+
+<p>No longer Kaisa… but <i>Kai’Sa.</i></p>
+            </div>
+        </div>
+        
+    </div><!--end about container-->
+
+    <div id="credit">
+      <a href="//pneuma-themes.tumblr.com" title="kardia by pneumathemes">code</a>
+    </div>
+
+    <script>
+      const toggle = document.getElementById("theme-toggle");
+      toggle.onclick = function () {
+        document.documentElement.classList.add("theme-transition");
+        let currentTheme = document.documentElement.getAttribute("data-theme");
+        let targetTheme = "light";
+        if (currentTheme === "light") {
+          targetTheme = "dark";
+        }
+
+        window.setTimeout(function () {
+          document.documentElement.classList.remove("theme-transition");
+        }, 50);
+        document.documentElement.setAttribute("data-theme", targetTheme);
+        localStorage.setItem("theme", targetTheme);
+      };
+    </script>
+  
+<iframe scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0; z-index:9999;" id="ga_target"></iframe><script type="text/javascript">
+    (function(){
+        var analytics_frame = document.getElementById('ga_target');
+        var analytics_iframe_loaded;
+        var user_logged_in;
+        var blog_is_nsfw = 'No';
+
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        eventer(messageEvent,function(e) {
+            var message = (e.data && e.data.split) ? e.data.split(';') : '';
+            switch (message[0]) {
+                case 'analytics_iframe_loaded':
+                    analytics_iframe_loaded = true;
+                    postCSMessage();
+                    postGAMessage();
+                    break;
+                case 'user_logged_in':
+                    user_logged_in = message[1];
+                    postGAMessage();
+                    break;
+            }
+        }, false);
+
+        analytics_frame.src = "https://assets.tumblr.com/analytics.html?_v=9f5febfd57a8a649c598d888f2d9e062#" +
+                              "https://pneuma-prev.tumblr.com";
+        function postGAMessage() {
+            if (analytics_iframe_loaded && user_logged_in) {
+                var is_ajax = false;
+                analytics_frame.contentWindow.postMessage(['tick_google_analytics', is_ajax, user_logged_in, blog_is_nsfw, '/pg-kardia?route=custom_page'].join(';'), analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postCSMessage() {
+            COMSCORE = true;
+            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
+        }
+    })();
+</script><script type="text/javascript" nonce="kD6IzvIlD5MmDBPcsbxwibH3zk">!function(s){s.src='https://px.srvcs.tumblr.com/impixu?T=1655348867&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDovL3BuZXVtYS1wcmV2LnR1bWJsci5jb20vcGcta2FyZGlhIiwicmVxdHlwZSI6MCwicm91dGUiOiJjdXN0b21fcGFnZSJ9&U=PPIAECLJJE&K=6a7757f9179f3581e7faa892b44486c24ec55b82ce7f3557296153f7e8d94f05&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://px.srvcs.tumblr.com/impixu?T=1655348867&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDovL3BuZXVtYS1wcmV2LnR1bWJsci5jb20vcGcta2FyZGlhIiwicmVxdHlwZSI6MCwicm91dGUiOiJjdXN0b21fcGFnZSIsIm5vc2NyaXB0IjoxfQ==&U=PPIAECLJJE&K=807ba57725ad0b939ac34cd1cca4f3c1e9015a0d692a37232f5e8973ab9ab04c&R="></noscript><noscript id="bootloader" data-bootstrap="{&quot;Components&quot;:{&quot;PostActivity&quot;:[],&quot;NotificationPoller&quot;:{&quot;messaging_keys&quot;:[],&quot;token&quot;:&quot;c86f8a500596474a7ef5034081f694bd&quot;,&quot;inbox_unread&quot;:0},&quot;DesktopDashboardLogo&quot;:{&quot;animations&quot;:[[&quot;https:\/\/assets.tumblr.com\/images\/logo\/hover-animations\/1.png?_v=161861acded461bb6e995593a3bae835&quot;,&quot;https:\/\/assets.tumblr.com\/images\/logo\/hover-animations\/1@2x.png?_v=496a774637302a598c851381d00009b0&quot;]]},&quot;TumblelogIframe&quot;:{&quot;unified&quot;:true,&quot;variant&quot;:null,&quot;isCompact&quot;:false,&quot;tumblelogBundleSrc&quot;:&quot;https:\/\/assets.tumblr.com\/client\/prod\/standalone\/tumblelog\/index.build.js?_v=bffd096aaaf9a6f0caa302a310faf6f1&quot;,&quot;tumblelogName&quot;:&quot;pneuma-prev&quot;,&quot;isLoggedIn&quot;:false,&quot;isFriend&quot;:false,&quot;formKey&quot;:&quot;&quot;,&quot;canSubscribe&quot;:false,&quot;isSubscribed&quot;:false,&quot;tumblelogTitle&quot;:&quot;pneuma previews&quot;,&quot;tumblelogAvatar&quot;:&quot;https:\/\/assets.tumblr.com\/images\/default_avatar\/cone_closed_64.png&quot;,&quot;tumblelogAvatar128&quot;:&quot;https:\/\/assets.tumblr.com\/images\/default_avatar\/cone_closed_128.png&quot;,&quot;tumblelogHost&quot;:&quot;https:\/\/pneuma-prev.tumblr.com&quot;,&quot;isOptica&quot;:true,&quot;isCustomTheme&quot;:false,&quot;themeHeaderImage&quot;:&quot;https:\/\/64.media.tumblr.com\/9791e3ac6b55616ef7caa5d5fffa1886\/b4ad827021854ae1-c9\/s2048x3072\/50d1573a0ec216fb6624ae7d3b3c4910f449458f.png&quot;,&quot;themeBackgroundColor&quot;:&quot;#FFFFFF&quot;,&quot;themeTitleColor&quot;:&quot;#000000&quot;,&quot;themeAccentColor&quot;:&quot;#00B8FF&quot;,&quot;brag&quot;:true,&quot;adsEnabled&quot;:false,&quot;canShowAd&quot;:true,&quot;isPremium&quot;:false,&quot;showLrecAds&quot;:false,&quot;showStickyLrecBackfill&quot;:false,&quot;showGeminiAds&quot;:false,&quot;geminiSectionCodeDesktop&quot;:&quot;a10bca9c-0c5d-4a02-ab13-14ab8513d81d&quot;,&quot;geminiSectionCodeMobile&quot;:&quot;ced63809-b609-4aca-96a0-abc099acba6b&quot;,&quot;currentPageType&quot;:null,&quot;currentPage&quot;:false,&quot;searchQuery&quot;:&quot;&quot;,&quot;tag&quot;:&quot;&quot;,&quot;query&quot;:&quot;&quot;,&quot;chrono&quot;:false,&quot;postId&quot;:&quot;&quot;,&quot;src&quot;:&quot;https:\/\/pneuma-prev.tumblr.com\/pg-kardia&quot;,&quot;postUrl&quot;:&quot;&quot;,&quot;isBlocked&quot;:null,&quot;isAdmin&quot;:false,&quot;lookupButtonUrl&quot;:&quot;&quot;,&quot;showSpamButton&quot;:false,&quot;showRootPostButton&quot;:false,&quot;rootPostUrl&quot;:&quot;&quot;,&quot;showRadarPostButton&quot;:false,&quot;radarKeys&quot;:&quot;&quot;,&quot;isUniblocked&quot;:false,&quot;isNsfw&quot;:false,&quot;isAdult&quot;:false,&quot;isSpam&quot;:false,&quot;isPrimaryBlog&quot;:false,&quot;canEdit&quot;:false,&quot;canReblogSelf&quot;:false,&quot;showLikeButton&quot;:false,&quot;showReblogButton&quot;:false,&quot;reblogUrl&quot;:&quot;&quot;,&quot;showMessagingButton&quot;:false,&quot;loginCheckIframeSrc&quot;:&quot;https:\/\/assets.tumblr.com\/assets\/html\/iframe\/login_check.html?_v=3de94a184d600617102ddd5b48fb36e9&quot;,&quot;appInstallUrls&quot;:{&quot;android&quot;:&quot;https:\/\/play.google.com\/store\/apps\/details?id=com.tumblr\u0026referrer=utm_source%3Dtumblr%26utm_medium%3Diframe%26utm_campaign%3Dbn_continue_or_install_cta&quot;,&quot;ios&quot;:&quot;https:\/\/apps.apple.com\/app\/apple-store\/id305343404?pt=212308\u0026ct=bn_continue_or_install_cta\u0026mt=8&quot;},&quot;appOpenReferrer&quot;:&quot;bn_header_open_btn&quot;,&quot;isShowSearch&quot;:true,&quot;supplyLogging&quot;:[],&quot;secondsSinceLastActivity&quot;:3599,&quot;installUrlOpenFailed&quot;:{&quot;android&quot;:&quot;https:\/\/play.google.com\/store\/apps\/details?id=com.tumblr\u0026referrer=utm_source%3Dtumblr%26utm_medium%3Diframe%26utm_campaign%3Dbn_header_app_open_failed&quot;,&quot;ios&quot;:&quot;https:\/\/apps.apple.com\/app\/apple-store\/id305343404?pt=212308\u0026ct=bn_header_app_open_failed\u0026mt=8&quot;},&quot;loginWallVariant&quot;:&quot;small_center&quot;}},&quot;Flags&quot;:{&quot;features&quot;:&quot;eyJmaWx0ZXJfbnNmdyI6dHJ1ZSwibW9iaWxlX3dlYl9nYXRlIjp0cnVlLCJzYWZlX21vZGUiOnRydWUsInNhZmVfbW9kZV9lbmFibGVkIjp0cnVlLCJrZXljb21tYW5kX2F1dG9fcGFnaW5hdGUiOnRydWUsImxvZ2dlZF9vdXRfc2VhcmNoIjp0cnVlLCJrcmFrZW5fd2ViX2xvZ2dpbmdfbGlicmFyeSI6dHJ1ZSwibGl2ZXBob3Rvc193ZWIiOnRydWUsInVzZXJfdGFnX2ZpbHRlcmluZyI6dHJ1ZSwic2FmZV9tb2RlX293bl9wb3N0Ijp0cnVlLCJwcm9qZWN0X3hfYXBwZWFsIjp0cnVlLCJtb2JpbGVfd2ViX3Bob3Rvc2V0cyI6dHJ1ZSwiaGlkZV9kZWZhdWx0X2hlYWRlcnNfYmxvZ19jYXJkcyI6dHJ1ZSwibm90aWZpY2F0aW9uX3JlcGx5X2xpbmtfdG9fbm90ZXMiOnRydWUsInR5cGluZ19pbmRpY2F0b3Jfd3JpdGUiOnRydWUsInR1bWJscl92aWRlb19zcG9uc29yZWRfZGF5Ijp0cnVlLCJjYXB0Y2hhOnVzZV9yZWNhcHRjaGEyIjp0cnVlLCJsaXR0bGVfc2lzdGVyIjp0cnVlLCJsb2dfbGFkeSI6dHJ1ZSwicmVkcG9wX3Bvc3RfZm9ybV9tb2JpbGVfY3JlYXRlIjp0cnVlLCJsZWdhY3lfcG9zdF9mb3JtX2J1dHRvbnNfbGlua190b19yZWRwb3AiOnRydWUsInNob3dfdHNwX2NsaWNrX3Rocm91Z2hfdG9nZ2xlIjp0cnVlLCJkYXJsYV9hZF9mZWVkYmFjayI6dHJ1ZSwic3RhdHVzX2luZGljYXRvciI6dHJ1ZSwiY29udmVyc2F0aW9uYWxfbm90aWZpY2F0aW9ucyI6dHJ1ZSwiZGlzYWJsZV95YWhvb19iX2Nvb2tpZSI6dHJ1ZSwibGl2ZXBob3RvcyI6dHJ1ZX0=&quot;},&quot;Context&quot;:{&quot;name&quot;:&quot;default&quot;,&quot;time&quot;:1655348867000,&quot;userinfo&quot;:{&quot;primary&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;channels&quot;:[]},&quot;hosts&quot;:{&quot;assets_host&quot;:&quot;https:\/\/assets.tumblr.com&quot;,&quot;secure_assets_host&quot;:&quot;https:\/\/assets.tumblr.com&quot;,&quot;www_host&quot;:&quot;https:\/\/www.tumblr.com&quot;,&quot;secure_www_host&quot;:&quot;https:\/\/www.tumblr.com&quot;,&quot;embed_host&quot;:&quot;https:\/\/embed.tumblr.com&quot;,&quot;safe_host&quot;:&quot;https:\/\/safe.txmblr.com&quot;,&quot;platform_host&quot;:&quot;https:\/\/platform.tumblr.com&quot;},&quot;language&quot;:&quot;es_ES&quot;,&quot;language_simple&quot;:&quot;es&quot;,&quot;assets&quot;:&quot;https:\/\/assets.tumblr.com\/client\/prod\/&quot;},&quot;Translations&quot;:{&quot;Cancel&quot;:&quot;Cancelar&quot;,&quot;Nevermind&quot;:&quot;Cancelar&quot;,&quot;Ignore&quot;:&quot;Ignorar&quot;,&quot;Unfollow&quot;:&quot;Dejar de seguir&quot;,&quot;Are you sure you want to unfollow %1$s?&quot;:&quot;\u00bfSeguro que quieres dejar de seguir a %1$s?&quot;,&quot;Sorry, we seem to be having technical trouble.  Please try again later.&quot;:&quot;Lo sentimos, parece que estamos experimentando problemas t\u00e9cnicos. Vuelve a intentarlo m\u00e1s tarde.&quot;,&quot;Follow&quot;:&quot;Seguir&quot;,&quot;Follow %1$s&quot;:&quot;Seguir a %1$s&quot;,&quot;Put it back&quot;:&quot;Vuelve a tu sitio&quot;,&quot;See all&quot;:&quot;Ver todas&quot;,&quot;Block&quot;:&quot;Bloquear&quot;,&quot;%1$sAre you sure you want to block %2$s from %3$s?%4$sThey won&#039;t be able to follow %3$s, send %3$s messages, see %3$s in search results, or interact with any of %3$s&#039;s posts.%5$s&quot;:&quot;%1$s\u00bfSeguro que quieres bloquear a %2$s de %3$s?%4$sNo podr\u00e1 seguir a %3$s, enviar mensajes a %3$s, ver a %3$s en los resultados de b\u00fasqueda o interactuar de forma alguna con las publicaciones de %3$s.%5$s&quot;,&quot;%1$sBlock messages from this sender?%2$sAny further messages sent from their IP address will be blocked from your inbox. This can&#039;t be undone, by the way.%3$s&quot;:&quot;\u00bf%1$sQuieres bloquear los mensajes de este remitente?%2$sDejar\u00e1s de recibir mensajes enviados desde su misma direcci\u00f3n IP en tu bandeja de entrada. No olvides que no es posible deshacer este cambio.%3$s&quot;,&quot;Okay! We&#039;ll review the status of this and email you when we&#039;re done.&quot;:&quot;\u00a1Perfecto! Analizaremos el caso y te enviaremos un correo electr\u00f3nico cuando el proceso haya terminado.&quot;,&quot;This is marked as sensitive content. If that seems like a mistake, you can request a review.&quot;:&quot;Esta publicaci\u00f3n est\u00e1 marcada como contenido delicado. Si crees que se trata de un error, puedes pedirnos que la revisemos.&quot;,&quot;Request Review&quot;:&quot;Solicitar revisi\u00f3n&quot;,&quot;This post is still marked as sensitive, but is currently being reviewed.&quot;:&quot;Esta publicaci\u00f3n sigue marcada como contenido delicado, pero la estamos revisando.&quot;,&quot;After review, it was determined that this post contains sensitive content.&quot;:&quot;Tras revisarlo, hemos corroborado que el contenido de esta publicaci\u00f3n puede ser delicado.&quot;,&quot;This is marked as %1$ssensitive%2$s&quot;:&quot;Esta publicaci\u00f3n incluye %1$scontenido delicado%2$s&quot;,&quot;This Tumblr may contain sensitive media.&quot;:&quot;El contenido de este Tumblr puede ser delicado.&quot;,&quot;Sensitive posts are hidden. If you want to change that, disable Safe Mode in your settings.&quot;:&quot;Las publicaciones con contenidos que pueden resultar delicados est\u00e1n ocultas. Para mostrarlas, desactiva el modo seguro en el apartado de configuraci\u00f3n.&quot;,&quot;Hey, this post may contain adult content, so we&#039;ve hidden it from public view.&quot;:&quot;Vaya... Es posible que esta publicaci\u00f3n incluya contenido para adultos y, por eso, la hemos ocultado.&quot;,&quot;Learn more&quot;:&quot;M\u00e1s informaci\u00f3n&quot;,&quot;%1$sLearn more%2$s&quot;:&quot;%1$sM\u00e1s informaci\u00f3n%2$s&quot;,&quot;Safe Mode is on&quot;:&quot;Modo seguro activado&quot;,&quot;%1$sSafe mode is on%2$s&quot;:&quot;%1$sModo seguro activado%2$s&quot;,&quot;View this Tumblr&quot;:&quot;Ver este Tumblr&quot;,&quot;This content contains adult content which violates our Community Guidelines.&quot;:&quot;Esta publicaci\u00f3n incluye contenido para adultos y, por tanto, infringe las Normas de la comunidad.&quot;,&quot;This post was flagged because we think it contains adult content which violates our Community Guidelines. It has been hidden from others, but not deleted. If you think this was done in error, tap Appeal and a real, live human will review it.&quot;:&quot;Hemos marcado esta publicaci\u00f3n porque creemos que incluye contenido para adultos y, por lo tanto, incumple las Normas de la comunidad. De momento, est\u00e1 oculta para el resto de usuarios, pero no la hemos eliminado. Si crees que se trata de un error, utiliza el bot\u00f3n para solicitar una revisi\u00f3n y un miembro de nuestro equipo se encargar\u00e1 de comprobarla.&quot;,&quot;Your post is in content appeal. Once a decision has been made, we&#039;ll send you an email.&quot;:&quot;Esta publicaci\u00f3n se encuentra en revisi\u00f3n. Te enviaremos un correo electr\u00f3nico cuando hayamos tomado una decisi\u00f3n.&quot;,&quot;This post was flagged because it contains adult content which violates our Community Guidelines. It has not been deleted but is now only viewable to you. This decision cannot be appealed.&quot;:&quot;Hemos marcado esta publicaci\u00f3n porque incluye contenido para adultos y, por lo tanto, incumple las Normas de la comunidad. No la hemos eliminado, pero, a partir de ahora, solo podr\u00e1s verla t\u00fa. Esta decisi\u00f3n es definitiva y no podr\u00e1s solicitar que se revise.&quot;,&quot;This post was flagged because somewhere in your reblog there might be adult content which is a violation of our Community Guidelines.&quot;:&quot;Hemos marcado esta publicaci\u00f3n porque el reblogueo inclu\u00eda contenido para adultos y, por lo tanto, incumpl\u00eda las Normas de la comunidad.&quot;,&quot;This reblog is in content appeal&quot;:&quot;Este reblogueo se ha enviado al equipo de revisi\u00f3n&quot;,&quot;Your post is in content appeal&quot;:&quot;Tu contenido se ha enviado al equipo de revisi\u00f3n&quot;,&quot;This post was flagged because somewhere in your reblog there might be adult content.&quot;:&quot;Hemos marcado esta publicaci\u00f3n porque parece que el reblogueo inclu\u00eda contenido para adultos.&quot;,&quot;It looks like your post might be in violation of our Community Guidelines and is now hidden.&quot;:&quot;Parece que tu publicaci\u00f3n podr\u00eda incumplir nuestras Normas de la comunidad, as\u00ed que hemos decidido ocultarla.&quot;,&quot;Based on our Community Guidelines this post contains adult content and is now only viewable to you.&quot;:&quot;Seg\u00fan nuestras Normas de la comunidad, esta publicaci\u00f3n incluye contenido para adultos y, a partir de ahora, solo t\u00fa podr\u00e1s verla.&quot;,&quot;Your appeal was accepted! This post is no longer hidden.&quot;:&quot;Hemos valorado tu solicitud de revisi\u00f3n y \u00a1ten\u00edas raz\u00f3n! Este contenido ya no est\u00e1 oculto.&quot;,&quot;Dismiss&quot;:&quot;Descartar&quot;,&quot;Appeal&quot;:&quot;Solicitar revisi\u00f3n&quot;,&quot;This post contains filtered tags&quot;:&quot;Esta publicaci\u00f3n contiene etiquetas filtradas&quot;,&quot;Are you sure you want to log out?&quot;:&quot;\u00bfSeguro que quieres cerrar la sesi\u00f3n?&quot;,&quot;Likes&quot;:&quot;Me gusta&quot;,&quot;Following&quot;:&quot;Siguiendo&quot;,&quot;New&quot;:&quot;A\u00f1adir blog&quot;,&quot;Account&quot;:&quot;Cuenta&quot;,&quot;Settings&quot;:&quot;Configuraci\u00f3n&quot;,&quot;Help&quot;:&quot;Ayuda&quot;,&quot;Log out&quot;:&quot;Cerrar sesi\u00f3n&quot;,&quot;Posts&quot;:&quot;Publicaciones&quot;,&quot;Reach&quot;:&quot;Alcance&quot;,&quot;Followers&quot;:&quot;Seguidores&quot;,&quot;Activity&quot;:&quot;Actividad&quot;,&quot;Members&quot;:&quot;Miembros&quot;,&quot;Drafts&quot;:&quot;Borradores&quot;,&quot;Queue&quot;:&quot;En cola&quot;,&quot;Processing&quot;:&quot;Procesando&quot;,&quot;Review flagged posts&quot;:&quot;Comprobar publicaciones marcadas&quot;,&quot;Analytics&quot;:&quot;Estad\u00edsticas&quot;,&quot;Sponsor&quot;:&quot;Patrocinador&quot;,&quot;Sponsored&quot;:&quot;Patrocinado&quot;,&quot;About Tumblr Ads&quot;:&quot;Acerca de la publicidad en Tumblr&quot;,&quot;Edit appearance&quot;:&quot;Modificar apariencia&quot;,&quot;Your blog info, account info, and recent activity are in these menus.&quot;:&quot;La informaci\u00f3n de tu blog, los datos de tu cuenta y tu actividad reciente se encuentran en estos men\u00fas.&quot;,&quot;Wait, why?&quot;:&quot;Pero \u00bfpor qu\u00e9?&quot;,&quot;Okay, phew&quot;:&quot;\u00a1Ah, vale!&quot;,&quot;Why?&quot;:&quot;\u00bfQu\u00e9 ofrecemos?&quot;,&quot;It&#039;s so you never have to scroll to the top of the dashboard to access this stuff.&quot;:&quot;Lo hemos juntado todo aqu\u00ed para que no tengas que desplazarte hacia la parte superior del Escritorio cada vez que quieras acceder a estas opciones.&quot;,&quot;Ohhh&quot;:&quot;Aaaah&quot;,&quot;Loading\u2026&quot;:&quot;Cargando...&quot;,&quot;%1$s notes&quot;:&quot;%1$s notas&quot;,&quot;%1$s note&quot;:&quot;%1$s nota&quot;,&quot;%1$s views&quot;:&quot;%1$s visitas&quot;,&quot;%1$s view&quot;:&quot;%1$s visita&quot;,&quot;%1$s added this GIF to a post&quot;:&quot;%1$s ha utilizado este GIF en una publicaci\u00f3n&quot;,&quot;%1$s posted this&quot;:&quot;%1$s ha publicado esto&quot;,&quot;%1$s%2$s likes%3$s&quot;:&quot;%1$s%2$s Me gusta%3$s&quot;,&quot;%1$s%2$s like%3$s&quot;:&quot;%1$s%2$s Me gusta%3$s&quot;,&quot;%1$s%2$s reblogs%3$s&quot;:&quot;%1$s%2$s reblogueos%3$s&quot;,&quot;%1$s%2$s reblog%3$s&quot;:&quot;%1$s%2$s reblogueo%3$s&quot;,&quot;%1$s%2$s likes%3$s and %4$s%5$s reblogs%3$s&quot;:&quot;%1$s%2$s Me gusta%3$s y %4$s%5$s reblogueos%3$s&quot;,&quot;%1$s%2$s likes%3$s and %4$s%5$s reblog%3$s&quot;:&quot;%1$s%2$s Me gusta%3$s y %4$s%5$s reblogueo%3$s&quot;,&quot;%1$s%2$s like%3$s and %4$s%5$s reblogs%3$s&quot;:&quot;%1$s%2$s Me gusta%3$s y %4$s%5$s reblogueos%3$s&quot;,&quot;Reply&quot;:&quot;Responder&quot;,&quot;Add to the discussion&quot;:&quot;Comparte tu opini\u00f3n&quot;,&quot;Unleash a compliment&quot;:&quot;Haz un cumplido&quot;,&quot;Have something to say?&quot;:&quot;\u00bfAlgo que decir?&quot;,&quot;Reply your heart out&quot;:&quot;Abre tu coraz\u00f3n&quot;,&quot;Add something wonderful&quot;:&quot;Comparte algo espectacular&quot;,&quot;Send something nice&quot;:&quot;Di algo bonito&quot;,&quot;Your words here&quot;:&quot;Aqu\u00ed es donde van las palabras&quot;,&quot;Say your thing&quot;:&quot;\u00bfAlgo que decir?&quot;,&quot;Block %1$s&quot;:&quot;Bloquear a %1$s&quot;,&quot;Report&quot;:&quot;Denunciar&quot;,&quot;%1$sReport %2$s&#039;s post?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;:&quot;%1$s\u00bfSeguro que quieres denunciar el blog de %2$s?%3$sSi infringe las normas de la comunidad, lo eliminaremos.%4$s&quot;,&quot;%1$sReport %2$s&#039;s reply?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;:&quot;%1$s\u00bfSeguro que quieres denunciar el blog de %2$s?%3$sSi infringe las normas de la comunidad, lo eliminaremos.%4$s&quot;,&quot;Hide note&quot;:&quot;Ocultar nota&quot;,&quot;Delete reply&quot;:&quot;Borrar respuesta&quot;,&quot;%1$sYou definitely want to hide this note?%2$s&quot;:&quot;%1$s\u00bfSeguro que quieres ocultar esta nota?%2$s&quot;,&quot;%1$sYou definitely want to delete this reply?%2$s&quot;:&quot;%1$s\u00bfSeguro que quieres borrar esta respuesta?%2$s&quot;,&quot;%1$sDelete your tip??%2$s&quot;:&quot;%1$s\u00bfQuieres eliminar la propina?%2$s&quot;,&quot;Deleting your tip&quot;:&quot;Al hacerlo, solo la borrar\u00e1s de la pesta\u00f1a de las respuestas y de las notas. %1$sNo recibir\u00e1s ning\u00fan reembolso por tu propina%2$s. Si necesitas ayuda o tienes alguna otra pregunta, %3$sescribe al equipo de asistencia de Tumblr%4$s.&quot;,&quot;Hide it&quot;:&quot;S\u00ed, ocultadla&quot;,&quot;Delete it&quot;:&quot;S\u00ed, borradla&quot;,&quot;Search&quot;:&quot;Buscar&quot;,&quot;Search %s&quot;:&quot;Buscar en %s&quot;,&quot;Fan mail&quot;:&quot;Carta de fan&quot;,&quot;Message&quot;:&quot;Mensaje&quot;,&quot;Like&quot;:&quot;Me gusta&quot;,&quot;Unlike&quot;:&quot;Ya no me gusta&quot;,&quot;Reblog&quot;:&quot;Rebloguear&quot;,&quot;Embed&quot;:&quot;Insertar&quot;,&quot;Edit&quot;:&quot;Editar&quot;,&quot;Delete&quot;:&quot;Borrar&quot;,&quot;Get notifications&quot;:&quot;Recibir notificaciones&quot;,&quot;Stop notifications&quot;:&quot;Dejar de recibir notificaciones&quot;,&quot;Flag this blog&quot;:&quot;Marcar blog&quot;,&quot;Sign up&quot;:&quot;Reg\u00edstrate&quot;,&quot;Sign up for Tumblr&quot;:&quot;Reg\u00edstrate en Tumblr&quot;,&quot;Log in&quot;:&quot;Inicia sesi\u00f3n&quot;,&quot;You&#039;ll never be bored again.&quot;:&quot;Jam\u00e1s volver\u00e1s a aburrirte.&quot;,&quot;Discover more blogs like this one.&quot;:&quot;Descubre otros blogs parecidos.&quot;,&quot;Install the app&quot;:&quot;Instalar la aplicaci\u00f3n&quot;,&quot;Open in app&quot;:&quot;Abrir en la aplicaci\u00f3n&quot;,&quot;Dashboard&quot;:&quot;Escritorio&quot;,&quot;Open in Dashboard&quot;:&quot;Abrir en el Escritorio&quot;,&quot;Get the Tumblr app&quot;:&quot;Descarga la aplicaci\u00f3n de Tumblr&quot;,&quot;Are you sure you want to delete this post?&quot;:&quot;\u00bfSeguro que quieres borrar esta publicaci\u00f3n?&quot;,&quot;Never miss a post&quot;:&quot;\u00a1No te pierdas ni una publicaci\u00f3n!&quot;,&quot;Accept&quot;:&quot;Aceptar&quot;,&quot;Privacy \u0026 Cookies&quot;:&quot;Privacidad y cookies&quot;,&quot;By using this site, you&#039;re agreeing to the use of analytics and other types of cookies. Click accept here, and cookies will also show you personalized ads from across the Automattic\/Wordpress.com network.&quot;:&quot;Al utilizar esta p\u00e1gina, muestras tu consentimiento para que almacenemos datos estad\u00edsticos y otro tipo de cookies. Haz clic aqu\u00ed para aceptar y las cookies tambi\u00e9n te mostrar\u00e1n anuncios personalizados de toda la red de Automattic y Wordpress.com.&quot;,&quot;Get the app&quot;:&quot;Descarga la aplicaci\u00f3n&quot;,&quot;Open in the app store?&quot;:&quot;\u00bfQuieres abrir la tienda de aplicaciones?&quot;,&quot;%1$s, a blog on Tumblr.&quot;:&quot;%1$s, un flamante blog de Tumblr.&quot;,&quot;No thanks&quot;:&quot;No, gracias&quot;,&quot;Never miss a post from %1$s&quot;:&quot;No te pierdas ni una publicaci\u00f3n de %1$s&quot;,&quot;Make gifs, find your community. Only in the app.&quot;:&quot;Crea gifs y encuentra a gente que comparte tus intereses en la aplicaci\u00f3n.&quot;,&quot;Close&quot;:&quot;Cerrar&quot;,&quot;Image Description&quot;:&quot;Descripci\u00f3n de la imagen&quot;}}"></noscript><script src="https://assets.tumblr.com/client/prod/standalone/tumblelog/index.build.js?_v=bffd096aaaf9a6f0caa302a310faf6f1"></script></body>
+  <script>
+    $(document).ready(function () {
+      tippy("[title]", {
+        // change these to your liking
+        arrow: false,
+        placement: "left", // top, right, bottom, left
+        delay: 5, //ms
+        offset: [0,20], //px or string
+        maxWidth: 300, //px or string
+
+        // leave these as they are
+        followCursor: false,
+        allowHTML: true,
+        theme: "custom",
+        ignoreAttributes: true,
+        content(reference) {
+          const title = reference.getAttribute("title");
+          reference.removeAttribute("title");
+          return title;
+        },
+      });
+    });
+  </script>
+</html>
